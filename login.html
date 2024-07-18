@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="full__width--container">
+      <div class="left__side">
+        <section class="login background__secondary flex__column--center">
+          <!-- Logo iznad prijave -->
+          <img
+            src="./assets/images/abstract-images/Logo.png"
+            alt="Zwook Logo"
+            width="186.60px"
+            height="52px"
+          />
+
+          <!-- Modul prijave/registracije -->
+          <div class="flex__column--center">
+            <h2 class="text__primary">Welcome Back</h2>
+            <p class="text_primary--placeholder">
+              Don't have an account yet?
+              <span
+                ><a href="dashboard.html" class="text__primary"
+                  >Sign Up</a
+                ></span
+              >
+            </p>
+          </div>
+
+          <!-- Forma -->
+
+          <form action="/login" method="POST" class="login__form">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email Address"
+              aria-label="Email"
+              required
+              class="background__secondary border__primary text_primary--placeholder"
+            />
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              aria-label="password"
+              required
+              class="background__secondary border__primary text_primary--placeholder"
+            />
+            <button type="submit" class="background__secondary border__primary">
+              Login
+            </button>
+            <div class="flex__row--center or__container">
+              <hr />
+              <p class="text_primary--placeholder">or</p>
+              <hr />
+            </div>
+            <button type="submit" class="background__secondary border__primary">
+              Authorize with Google
+            </button>
+          </form>
+        </section>
+      </div>
+      <div class="right__side">
+        <!-- Bit će potrebna dorada radi pozicija -->
+        <figure class="background__secondary login__floating--figure">
+          <img
+            src="./assets/images/login-background/category-card.png"
+            alt="Singer"
+            width="150px"
+            height="150px"
+            class="login__img"
+          />
+          <figcaption class="text__primary">Phantom Echoes</figcaption>
+        </figure>
+        <figure class="background__secondary login__floating--figure">
+          <img
+            src="./assets/images/login-background/category-card2.png"
+            alt="Singer"
+            width="150px"
+            height="150px"
+            class="login__img"
+          />
+          <figcaption class="text__primary">Luna Nova</figcaption>
+        </figure>
+        <img
+          src="./assets/images/login-background/Frame.png"
+          alt="background frame"
+          width="515px"
+          height="515px"
+        />
+        <img
+          src="./assets/images/login-background/Frame.png"
+          alt="background frame"
+          width="585px"
+          height="585px"
+        />
+        <!-- Koristio sam cijelu dashboard za ovo jer mi tako slika nije mutna -->
+        <img
+          src="./assets/images/login-background/Zwook -_ Dashboard.png"
+          alt="background dashboard"
+        />
+      </div>
+    </div>
+  </body>
+</html>

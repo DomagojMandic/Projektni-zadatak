@@ -1,0 +1,951 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+/* Varijable najčešćih stilizacija */
+
+/* Potrebno dodati varijablu za border-radius */
+
+:root {
+  --background--primary: #0d121c;
+  --background--secondary: #252a33;
+  --background--surface: #efcc44;
+  --text--primary: #eef2f6;
+  --text--secondary: #9aa3b2;
+  --text--primaryPlaceholder: #9aa3b2;
+  --text--dark: #0d121c; /* Ista kao i background primary */
+  --text--neutral: rgba(252, 252, 253, 1);
+  --text--invert: rgba(18, 25, 38, 1);
+  --border--primary: #4a4d55;
+  --border--primary--lighter: rgba(54, 65, 82, 1);
+  --surface--primary--active: #3d4149;
+  --surface--primary: rgba(37, 42, 51, 1);
+  --surface--brand: rgba(21, 94, 239, 1);
+  --surface--error: rgba(240, 68, 56, 1);
+  --surface--invert: rgba(252, 252, 253, 1);
+}
+
+/* Generalna stilizacija */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 20px;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  display: block;
+}
+
+/* Pomoćne klase */
+
+.flex__column--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex__column--start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex__row--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex__row--start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.aside__card--active {
+  background-color: var(--surface--primary--active);
+  color: var(--text--primary);
+}
+
+.aside__list {
+  font-size: 10px;
+  background-color: var(--background--surface);
+  color: var(--text--dark);
+  border-radius: 20px;
+}
+
+.relative {
+  position: relative;
+}
+
+/* Primjena boja */
+
+.text__primary {
+  color: var(--text--primary);
+}
+
+.text_primary--placeholder {
+  color: var(--text--primaryPlaceholder);
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+}
+
+.background__secondary {
+  background-color: var(--background--secondary);
+}
+
+.border__primary {
+  border: 1px solid var(--border--primary);
+  border-radius: 10px;
+}
+
+/* Login screen stilizacija */
+
+/* Lijeva polovica zaslona */
+
+.full__width--container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container prije logina */
+.left__side {
+  width: 50%;
+  background-color: var(--background--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.login {
+  width: 474px;
+  max-width: 474px;
+  border: 1px solid var(--border--primary);
+  border-radius: 10px;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+
+/* Logo */
+.login img:first-child {
+  margin-top: 2rem;
+}
+
+/* Tekst ispod loga */
+
+.login > div.flex__column--center {
+  gap: 5px;
+  font-size: 1.4rem;
+}
+
+.flex__column--center h2:first-child {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+span > a {
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+/* Forma logina */
+
+.login__form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Inputi */
+
+.login__form > input {
+  padding: 1.3rem 1rem 1.3rem 3.5rem;
+  outline: none;
+  font-size: 1.5rem;
+  background-position: calc(10px + 2px) center;
+  background-repeat: no-repeat;
+}
+
+.login__form > input:first-child {
+  background-image: url(./assets/images/icons/email.png);
+}
+
+.login__form > input:nth-child(2) {
+  background-image: url(./assets/images/icons/lock-2.png);
+}
+
+.login__form > input:focus {
+  border: 2px solid var(--background--surface);
+}
+
+/* Buttoni */
+.login__form > button {
+  padding: 1.3rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+}
+
+.login__form button:nth-child(3) {
+  background-color: var(--background--surface);
+}
+
+.login__form button:last-child {
+  margin-bottom: 2rem;
+  color: var(--text--primary);
+}
+
+/* or stilizacija sa hr */
+.flex__row--center > hr {
+  flex-grow: 1;
+  border: 1px solid var(--border--primary);
+}
+
+.or__container > p {
+  padding: 0 2rem 0 2rem;
+  font-size: 1.4rem;
+}
+
+/* Desna polovica zaslona */
+
+.right__side {
+  width: 50%;
+  background: var(--background--surface);
+}
+
+/* Stilizacija i pozicioniranje figura */
+
+.login__floating--figure {
+  position: fixed;
+  width: 174px;
+  max-width: 174px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  padding-top: 10px;
+  padding-bottom: 1rem;
+}
+
+.login__floating--figure > figcaption {
+  padding-left: 13px;
+}
+
+.login__img {
+  margin: 0 auto 8px auto;
+}
+
+.right__side .login__floating--figure:first-child {
+  /* bottom: 16%; */
+  top: 68%;
+  left: 56.5%;
+  z-index: 15;
+}
+
+.right__side .login__floating--figure:nth-child(2) {
+  top: 39%;
+  left: 83%;
+  z-index: 15;
+}
+
+/* Stilizacija i pozicioniranje 2 framea */
+
+img[src*="login-background/Frame"] {
+  position: absolute;
+  top: 2.7%;
+  opacity: 0px;
+  z-index: 0;
+  max-width: 515px;
+  max-height: 48vh;
+  transform: translate(0%, -13%);
+}
+
+img[src*="login-background/Frame"]:nth-child(4) {
+  position: absolute;
+  left: 76.8%;
+  top: 37%;
+  z-index: 0;
+  transform: rotate(180deg);
+
+  /* Ovdje se dvoumim između position relative i absolute
+   position: relative;
+  left: 53%;
+  top: -19%;
+  transform: rotate(180deg);*/
+}
+
+/* Pozicija slike dashboarda */
+
+img[src*="/assets/images/login-background/Zwook"] {
+  position: relative;
+  top: 49%;
+  left: 21.1%;
+}
+
+/* Stilizacija mog dashboarda - dashboard.html */
+
+/* Aside bar stilizacija */
+
+.aside__bar {
+  width: 100%;
+  max-width: 296px;
+  background-color: var(--background--secondary);
+  border-right: 1px solid var(--border--primary--lighter);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Kreiranje div containera radi stilizacije */
+
+.aside__bar > div:first-child {
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.aside__bar > div:first-child > img:first-child {
+  margin-top: 35px;
+}
+
+.list__of--services {
+  list-style: none;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.aside__list--item a {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text--secondary);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem 0.8rem 1.2rem;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 9px;
+}
+
+.aside__list--item a:hover {
+  background-color: var(--surface--primary--active);
+  color: var(--text--primary);
+}
+
+.aside__list--item a .flex__row--start {
+  gap: 15px;
+  align-items: center;
+}
+
+.devices {
+  width: 28px;
+  max-width: 28px;
+  text-align: center;
+}
+
+.add__podcasts {
+  width: 60px;
+  max-width: 60px;
+  text-align: center;
+}
+
+/* Premium Plan Section */
+
+/* Heading + ikonica */
+
+.update__premium {
+  width: 85%;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 1rem;
+  gap: 20px;
+  border: 1px solid var(--border--primary);
+  border-radius: 9px;
+  margin-bottom: 25px;
+  align-items: initial;
+}
+
+.update__premium > div:first-child {
+  width: 100%;
+}
+
+.update__premium div:first-child div:first-child {
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(239, 204, 68, 0.1);
+}
+
+.update__premium img {
+  color: red;
+  background-color: #efcc441a;
+}
+
+.update__premium h3 {
+  color: var(--text--primary);
+  font-weight: 500;
+}
+
+/* Paragraf - Your premium account... */
+
+.update__premium > p {
+  color: var(--text--primaryPlaceholder);
+}
+
+/* Predefinirani progress bar - statičko */
+
+.progress {
+  width: 95%;
+  background-color: var(--surface--primary--active);
+  border-radius: 25px;
+  overflow: hidden;
+  height: 8px;
+  justify-self: start;
+}
+
+.progress__bar {
+  width: 85%;
+  height: 100%;
+  background-color: var(--background--surface);
+  border-radius: 20px;
+}
+
+/* Stilizacija buttona */
+
+.button__flex {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.button__flex > button {
+  outline: none;
+  background-color: var(--background--secondary);
+  border: none;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.button__flex button:first-child {
+  color: var(--text--primary);
+}
+
+.button__flex button:last-child {
+  color: var(--background--surface);
+}
+
+/* Stilizacija headera i navigacije */
+
+/* Stilizacija containera i headera */
+
+.main__section--content {
+  width: 100%;
+  background-color: var(--background--primary);
+  overflow-y: auto; /* Omogućuje vertikalni skrol po potrebi */
+  overflow-x: hidden;
+}
+
+.reusable__header {
+  width: inherit;
+}
+
+.reusable__navigation {
+  display: flex;
+  width: 100%;
+  height: 68px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border--primary--lighter);
+}
+
+.reusable__navigation > div:first-child {
+  flex-grow: 1;
+  align-self: center;
+  margin-left: 25px;
+  display: flex;
+}
+
+.reusable__navigation > div:first-child input {
+  color: var(--text--primary);
+  outline: none;
+  border: 1px solid var(--border--primary);
+  border-radius: 9px;
+  min-width: 150px;
+  width: 320px;
+  max-width: 320px;
+  padding: 1rem 1rem 1rem 3.5rem;
+  font-family: "Inter", sans-serif;
+  background-color: var(--surface--primary);
+  background-image: url(./assets/images/icons/search-1.png);
+  background-repeat: no-repeat;
+  background-position: calc(10px) center; /* Bit će dorađeno */
+}
+
+/* Right side nav flex */
+
+.right__side--nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-right: 25px;
+}
+
+.right__side--nav > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.right__side--nav div h4 {
+  color: var(--text--primary);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.right__side--nav div p {
+  color: var(--text--primaryPlaceholder);
+  font-size: 1.2rem;
+}
+
+.right__side--nav img[src*="albertflores"] {
+  border-radius: 50%;
+  border: 1px solid var(--border--primary);
+}
+
+.online__offline--container {
+  background-color: rgba(23, 178, 106, 1);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: calc(14px); /* Bit će dorađeno */
+  left: calc(29px); /* Bit će dorađeno */
+  border: 1px solid var(--surface--primary);
+}
+
+/* Featured card stilizacija */
+
+main {
+  margin-top: 30px;
+}
+
+main > .card__layouts {
+  margin-bottom: 45px;
+}
+
+main > div:first-child {
+  margin-bottom: 45px;
+}
+
+.featured__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 23px;
+  color: var(--text--neutral);
+}
+
+.featured__container a {
+  flex-grow: 1;
+  max-width: 764px;
+  height: 300px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Stilizacija sadržaja i položaja svake od kartica */
+
+.featured__container .featured__card {
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 764px;
+  height: 300px;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 13px;
+  padding-left: 21px;
+  padding-bottom: 20px;
+}
+
+.featured__container .featured__card h2 {
+  font-size: 3.6rem;
+  font-weight: 500;
+}
+
+.featured__container .featured__card p,
+.featured__container .featured__card q {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Promjena redoslijeda u odnosu na redoslijed upisan u HTML-u */
+.featured__container .featured__card img[src*="/images/icons/arrow.png"] {
+  order: -1;
+  margin-bottom: 20px;
+}
+
+/* Pozadinske slike kartica*/
+.featured__container a:first-child > .featured__card {
+  background-image: url(./assets/images/abstract-images/abstract-image-1.png);
+}
+
+.featured__container a:last-child > .featured__card {
+  background-image: url(./assets/images/abstract-images/abstract-image-2.png);
+}
+
+/* Podcasts sekcija */
+
+/* Pozicioniranje podnaslova Podcasts i buttona view all */
+
+.main__options--flex {
+  display: flex;
+  justify-content: space-between;
+  width: 95.5%;
+  margin: 0 auto;
+  color: var(--text--primary);
+  font-size: 1.6rem;
+  padding: 0.3rem 0.5rem 1.5rem 0.5rem;
+  font-weight: 600;
+}
+
+.main__options--flex > h3 {
+  flex-grow: 1;
+}
+
+/* Stilizacija za sve view all i active buttone */
+
+.view__all {
+  color: inherit;
+  width: 77px;
+  max-width: 77px;
+  height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--border--primary);
+  outline: none;
+  background-color: var(--background--primary);
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+.button__active {
+  color: var(--text--invert);
+  background-color: var(--surface--invert);
+  border-radius: 9px;
+}
+
+/* Stilizacija za sve vrste podcasta ispod podnaslova */
+
+.podcast__flex--anchor {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text--neutral);
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  width: 308px;
+  /* max-width: 308px; */
+  height: 180px;
+  overflow: hidden;
+}
+
+/* Ovdje za sada ne znam što je cilj i kako će biti i izgledati na manjim
+zaslonima tako da sam napravio samo kako je i u dizajnu + flex wrap */
+
+.podcast__flex {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  width: 102%;
+  margin: 0 0 0 36.33px; /* Ovo će biti potrebno napraviti i na podnaslov + hero sect. */
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.podcast__card {
+  display: grid;
+  width: 100%;
+  height: 180px;
+  max-height: 180px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border-radius: 9px;
+}
+
+.podcast__card > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-row: 4 / 5;
+  grid-column: 1 / 4;
+  font-family: "Inter", sans-serif;
+  background-color: rgba(13, 18, 28, 0.6);
+}
+
+.podcast__card > div:first-child h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+
+.podcast__card > div:first-child span {
+  background-color: var(--surface--brand);
+  margin-right: 12px;
+  padding: 0px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.podcast__card > div:last-child {
+  display: flex;
+  width: 73px;
+  height: 24px;
+  align-self: center;
+  justify-self: center;
+  grid-column: 3 / 4;
+  background-color: rgba(65, 63, 58, 0.8);
+  border-radius: 12px;
+  color: rgba(23, 178, 106, 1);
+  justify-content: center;
+  gap: 5px;
+  font-size: 1.1rem;
+  margin-left: 5px;
+}
+
+.online__podcast--container {
+  background-color: rgba(23, 178, 106, 1);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--surface--primary);
+}
+
+.offline__podcast--container {
+  background-color: var(--surface--error);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--surface--primary);
+}
+
+/* Promjena pozadinske slike podcast flex itema i offline obavijesti*/
+
+.podcast__card {
+  background-size: cover;
+}
+
+.podcast__flex .podcast__flex--anchor:nth-child(1) .podcast__card {
+  background: url(./assets/images/podcast-images/image-type=Image17.png)
+    no-repeat center / cover;
+}
+.podcast__flex .podcast__flex--anchor:nth-child(2) .podcast__card {
+  background: url(./assets/images/podcast-images/image-type=Image18.png)
+    no-repeat center / cover;
+}
+
+.podcast__flex .podcast__flex--anchor:nth-child(2) p {
+  color: var(--surface--error);
+}
+
+.podcast__flex .podcast__flex--anchor:nth-child(3) .podcast__card {
+  background: url(./assets/images/podcast-images/image-type=Image19.png)
+    no-repeat center / cover;
+}
+.podcast__flex .podcast__flex--anchor:nth-child(4) .podcast__card {
+  background: url(./assets/images/podcast-images/image-type=Image20.png)
+    no-repeat center / cover;
+}
+.podcast__flex .podcast__flex--anchor:nth-child(5) .podcast__card {
+  background: url(./assets/images/podcast-images/image-type=Image21.png)
+    no-repeat center / cover;
+}
+
+.podcast__flex .podcast__flex--anchor:nth-child(5) p {
+  color: var(--surface--error);
+}
+
+/* Featured stilizacija - sličan layout kao i podcasts */
+
+/* Prvi div sa featured i buttonima je u identičnom flexu kao i kod Podcasta
+Jedino su buttoni dodani u jedan div kako bi se izrazio flex te sam ovdje samo
+stilizirao all button */
+
+.all__button {
+  width: 41px;
+  height: 36px;
+  outline: none;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Koristim sličnu stilizaciju kao i na login stranici, samo što ću ovdje
+to raditi s novom klasom jer ću u njoj dodati flex */
+
+.categories__flex--anchor {
+  width: 174px;
+  height: 198px;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.categories__flex {
+  display: flex;
+  justify-content: flex-start; /* Umjesto space-between koristim gap + flex-start  - pokazalo se responzivnije*/
+  width: 95.5%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+
+.categories__flex--figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 174px;
+  max-width: 174px;
+  height: 198px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+}
+
+.categories__flex--figure figcaption {
+  margin: 0 auto 0 13px;
+}
+
+/* Stilizacija footera */
+
+.reusable__footer {
+  background-color: var(--surface--primary);
+  border-top: 1px solid var(--border--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  height: 88px;
+  position: sticky;
+  overflow-x: visible;
+  max-width: 84.6vw;
+  bottom: 0;
+  right: 0;
+}
+
+.current__song {
+  display: flex;
+  gap: 8px;
+  width: 153px;
+  flex-wrap: wrap;
+}
+
+.current__song > img {
+  border: 1px solid var(--border--primary);
+  border-radius: 9px;
+}
+
+.current__song > div span {
+  font-size: 15px;
+  color: var(--text--primary);
+}
+
+.current__song > div p {
+  font-size: 11px;
+  color: var(--text--primaryPlaceholder);
+}
+
+/* Sredina footera */
+
+.play__flex--item {
+  display: flex;
+  flex-direction: column;
+  width: 416px;
+  max-width: 416px;
+  height: 64px;
+  justify-content: space-between;
+}
+
+.play__icon--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(1.3vw + 10px);
+}
+
+.timeline__container {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 10px;
+  color: var(--text--primaryPlaceholder);
+}
+
+.timeline__container > .full__timeline {
+  width: 349px;
+  background-color: var(--border--primary--lighter);
+  border-radius: 25px;
+  overflow: hidden;
+  height: 4px;
+}
+
+.full__timeline > .passed__timeline {
+  width: 138px;
+  height: 4px;
+  background-color: var(--text--primary);
+  border-radius: 25px;
+}
+
+.soundbar__container {
+  display: flex;
+  align-items: center;
+  gap: calc(1vw - 7px);
+  width: calc(12vw - 1.4vw);
+  max-width: 204px;
+}
+
+.full__volume {
+  width: 8.96vw;
+  max-width: 172px;
+  background-color: var(--border--primary--lighter);
+  height: 4px;
+  border-radius: 25px;
+  flex-shrink: 2;
+  display: flex;
+}
+
+.adjusted__volume {
+  width: 7.08vw;
+  max-width: 136px;
+  height: 4px;
+  background-color: var(--text--primary);
+  border-radius: 25px;
+  flex-shrink: 40;
+}
+
+/* Ispraviti razmake između Featured i Categories s ikonicama */
