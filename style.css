@@ -965,8 +965,9 @@ ne prepisujem stilizaciju od prošlog dokumenta*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
-  margin: 0 auto;
+  margin: 0 36.33px 2.5rem 36.33px;
   border-radius: 16px;
+  margin-bottom: 2rem;
 }
 
 .playlist__hero--section a {
@@ -1006,4 +1007,60 @@ ne prepisujem stilizaciju od prošlog dokumenta*/
 
 .playlist__card p:last-child {
   order: -1;
+}
+
+/* Playlist grid */
+
+.playlist__song--container {
+  display: grid;
+  color: var(--text--primary);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0 36.33px 2.5rem 36.33px;
+}
+
+.playlist__song--container > header.playlist__song--grid {
+  border-bottom: 1px solid var(--border--primary);
+  padding: 15px 0;
+}
+
+.playlist__song--grid {
+  display: grid;
+  grid-template-columns: 68px repeat(4, minmax(180px, 1fr));
+  padding: 10px 0;
+  line-height: 16px;
+  align-items: center;
+}
+
+.playlist__song--grid div:first-child {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.playlist__song--grid div:first-child p {
+  width: 18px;
+  height: 20px;
+}
+
+.playlist__song--grid div > img {
+  border-radius: 5px;
+  border: 1px solid var(--border--primary);
+  object-fit: fill;
+  object-position: center;
+}
+
+.song__artist {
+  align-items: initial;
+}
+
+.playlist__song--grid .song__artist > p {
+  font-size: 1.3rem;
+}
+
+.playlist__song--grid .song__artist > span {
+  line-height: 16px;
+  font-size: 1rem;
+  color: var(--text--primaryPlaceholder);
+  font-weight: 500;
 }
