@@ -949,3 +949,61 @@ to raditi s novom klasom jer ću u njoj dodati flex */
 }
 
 /* Ispraviti razmake između Featured i Categories s ikonicama */
+
+/* Stilizacija za playlists.html */
+
+/* Aside, navbar i footer su isti tako da krećem od .playlist__featured--containera 
+Koristim identičnu stilizaciju kao i u dashboardu za featured kartice, samo
+uz dodatak jednog containera - dosta stilizacije ću svakako morati promijeniti tako da 
+ne prepisujem stilizaciju od prošlog dokumenta*/
+
+.playlist__hero--section {
+  max-width: 1552px;
+  height: 300px;
+  max-height: 300px;
+  background-image: url(./assets/images/abstract-images/abstract-image-1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.playlist__hero--section a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: baseline;
+  gap: 25px;
+  text-decoration: none;
+  color: var(--text--neutral);
+}
+
+.playlist__featured--container {
+  margin-bottom: 24px;
+  margin-left: 24px;
+  border-radius: 9px;
+  display: flex;
+}
+
+.playlist__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.playlist__card h2 {
+  font-size: 7rem;
+  font-weight: 500;
+  line-height: 90px;
+}
+
+.playlist__card p {
+  font-size: 1.4rem;
+}
+
+.playlist__card p:last-child {
+  order: -1;
+}
