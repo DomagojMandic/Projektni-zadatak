@@ -70,6 +70,12 @@ img {
   gap: 10px;
 }
 
+.flex__column--start--stretch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .aside__card--active {
   background-color: var(--surface--primary--active);
   color: var(--text--primary);
@@ -344,6 +350,11 @@ img[src*="/assets/images/login-background/Zwook"] {
 }
 
 .aside__list--item a:hover {
+  background-color: var(--surface--primary--active);
+  color: var(--text--primary);
+}
+
+.current__aside--item a {
   background-color: var(--surface--primary--active);
   color: var(--text--primary);
 }
@@ -655,6 +666,19 @@ main > div:first-child {
   color: var(--text--invert);
   background-color: var(--surface--invert);
   border-radius: 9px;
+}
+
+.save__button {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background--surface);
+  color: var(--text--dark);
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  height: 36px;
+  width: 73px;
+  max-width: 73px;
 }
 
 /* Stilizacija za sve vrste podcasta ispod podnaslova */
@@ -1063,4 +1087,72 @@ ne prepisujem stilizaciju od prošlog dokumenta*/
   font-size: 1rem;
   color: var(--text--primaryPlaceholder);
   font-weight: 500;
+}
+
+/* Stilizacija podcasts.html - ponavlja se aside bar i header tako da se to ponovno
+ostavlja kako je, a kreće se s radom na main formu*/
+
+.podcasts__header {
+  color: var(--text--primary);
+  display: flex;
+  justify-content: space-between;
+  margin: 0 36.33px;
+}
+
+.podcasts__header h2 {
+  line-height: 40px;
+  font-size: 3rem;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+/* Buttoni su veći nego na dashboardu tako da povećavam samo njih */
+
+.podcasts__header div {
+  display: flex;
+  gap: 12px;
+  width: 171px;
+  max-width: 171px;
+}
+
+.podcasts__header div > button {
+  height: 44px;
+  font-size: 1.4rem;
+}
+
+.podcasts__header div > button:first-child {
+  width: 86px;
+  max-width: 86px;
+}
+
+/* Podcasts forma */
+
+.podcasts__form {
+  font-family: "Inter", sans-serif;
+  display: flex;
+}
+
+.left__side--podcasts--form {
+  flex-grow: 2;
+}
+
+.right__side--podcasts--form {
+  flex-grow: 1;
+}
+
+.podcasts__form label {
+  color: var(--text--primary);
+}
+
+.podcasts__form input {
+  background-color: var(--surface--primary);
+}
+
+.podcasts__form input::placeholder,
+.podcasts__form textarea {
+  color: var(--text--primaryPlaceholder);
+}
+
+#form--upload--image {
+  display: flex;
 }
