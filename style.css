@@ -193,7 +193,9 @@ span > a {
   background-image: url(./assets/images/icons/lock-2.png);
 }
 
-.login__form > input:focus {
+.login__form > input:focus,
+.podcasts__form input:focus,
+.podcasts__form textarea:focus {
   border: 2px solid var(--background--surface);
 }
 
@@ -1130,27 +1132,126 @@ ostavlja kako je, a kreće se s radom na main formu*/
 .podcasts__form {
   font-family: "Inter", sans-serif;
   display: flex;
+  gap: 20px;
+}
+
+.podcasts__form > div {
+  background-color: var(--background--secondary);
+  border: 1px solid var(--border--primary--lighter);
+  border-radius: 13px;
+  padding: 23px 23px 0 23px;
 }
 
 .left__side--podcasts--form {
   flex-grow: 2;
+  margin-left: 36px;
+  max-width: 1043px;
+  max-height: 559px;
 }
+
+.left__side--podcasts--form
+  > .flex__column--start--stretch:nth-of-type(2)
+  > label,
+.left__side--podcasts--form
+  > .flex__column--start--stretch:nth-of-type(3)
+  > label {
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.podcasts__form label[for="station--title"] {
+  padding-bottom: 4px;
+}
+
+.left__side--podcasts--form > .flex__column--start--stretch:last-child > div {
+  padding-bottom: 24px;
+  display: flex;
+  gap: 9px;
+}
+
+.left__side--podcasts--form
+  > .flex__column--start--stretch:last-child
+  > div:first-child {
+  padding-top: 22px;
+}
+
+/* Checkbox stilizacija */
+
+.custom__checkbox {
+  display: none;
+}
+
+.custom__checkbox + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 16px;
+  user-select: none;
+}
+
+.custom__checkbox + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--border--primary);
+  background-color: var(--background--secondary);
+  border-radius: 3px;
+}
+
+.custom__checkbox + label::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--background--surface);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom__checkbox:checked + label::after {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+/* Desna strana forme */
 
 .right__side--podcasts--form {
   flex-grow: 1;
+  margin-right: 36px;
+  max-width: 489px;
+  max-height: 559px;
 }
 
 .podcasts__form label {
   color: var(--text--primary);
+  font-size: 1.4rem;
 }
 
-.podcasts__form input {
+.podcasts__form input,
+.podcasts__form textarea {
   background-color: var(--surface--primary);
+  padding: 12px;
+  outline: none;
+  border: 1px solid var(--border--primary);
+  border-radius: 7px;
 }
 
 .podcasts__form input::placeholder,
 .podcasts__form textarea {
   color: var(--text--primaryPlaceholder);
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+}
+
+.podcasts__form textarea {
+  resize: none;
 }
 
 #form--upload--image {
