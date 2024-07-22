@@ -299,8 +299,20 @@
                 </div>
               </div>
               <div class="right__side--podcasts--form">
-                <label for="form--upload--image" class="custom-file-upload">
-                  <span>Click to upload</span> or drag and drop
+                <label
+                  for="form--upload--image"
+                  class="custom__file--upload flex__column--center"
+                >
+                  <div class="flex__row--center">
+                    <img
+                      src="./assets/images/icons/cloud-upload.png"
+                      alt="Cloud upload"
+                      width="16px"
+                      height="16px"
+                    />
+                  </div>
+                  <p><span>Click to upload</span> or drag and drop</p>
+
                   <p>SVG, PPNG, JPEG, TIFF or GIF</p>
                 </label>
 
@@ -309,6 +321,9 @@
                   id="form--upload--image"
                   name="form--upload--image"
                 />
+                <button class="upload__image--button save__button">
+                  Upload Image
+                </button>
               </div>
             </form>
           </article>

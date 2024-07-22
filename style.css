@@ -14,6 +14,7 @@
   --text--dark: #0d121c; /* Ista kao i background primary */
   --text--neutral: rgba(252, 252, 253, 1);
   --text--invert: rgba(18, 25, 38, 1);
+  --text--brand: rgba(82, 139, 255, 1);
   --border--primary: #4a4d55;
   --border--primary--lighter: rgba(54, 65, 82, 1);
   --surface--primary--active: #3d4149;
@@ -1175,6 +1176,32 @@ ostavlja kako je, a kreće se s radom na main formu*/
   padding-top: 22px;
 }
 
+.podcasts__form label {
+  color: var(--text--primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.podcasts__form input,
+.podcasts__form textarea {
+  background-color: var(--surface--primary);
+  padding: 12px;
+  outline: none;
+  border: 1px solid var(--border--primary);
+  border-radius: 7px;
+}
+
+.podcasts__form input::placeholder,
+.podcasts__form textarea {
+  color: var(--text--primaryPlaceholder);
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+}
+
+.podcasts__form textarea {
+  resize: none;
+}
+
 /* Checkbox stilizacija */
 
 .custom__checkbox {
@@ -1227,33 +1254,48 @@ ostavlja kako je, a kreće se s radom na main formu*/
   margin-right: 36px;
   max-width: 489px;
   max-height: 559px;
+  display: flex;
+  flex-direction: column;
 }
 
-.podcasts__form label {
-  color: var(--text--primary);
-  font-size: 1.4rem;
-}
-
-.podcasts__form input,
-.podcasts__form textarea {
-  background-color: var(--surface--primary);
-  padding: 12px;
-  outline: none;
+.custom__file--upload {
+  flex-grow: 1;
   border: 1px solid var(--border--primary);
   border-radius: 7px;
+  margin-bottom: 20px;
+  gap: 13px;
 }
 
-.podcasts__form input::placeholder,
-.podcasts__form textarea {
-  color: var(--text--primaryPlaceholder);
-  font-family: "Inter", sans-serif;
-  font-size: 1.4rem;
+.custom__file--upload > div:first-child {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: 1px solid var(--border--primary);
 }
 
-.podcasts__form textarea {
-  resize: none;
+.custom__file--upload p span {
+  color: var(--text--brand);
+  white-space: nowrap;
 }
+.custom__file--upload p:last-child {
+  color: var(--text--secondary);
+}
+
+.custom__file--upload > * {
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Micanje defaultnog upload buttona i ostavljanje labela */
 
 #form--upload--image {
-  display: flex;
+  display: none;
+}
+
+.upload__image--button {
+  max-width: initial;
+  height: 44px;
+  max-height: 44px;
+  width: initial;
+  margin-bottom: 24px;
 }
