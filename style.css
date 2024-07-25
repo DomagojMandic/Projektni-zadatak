@@ -516,6 +516,10 @@ img[src*="/assets/images/login-background/Zwook"] {
   background-position: calc(10px) center; /* Bit će dorađeno */
 }
 
+.expansion__container {
+  display: none;
+}
+
 /* Right side nav flex */
 
 .right__side--nav {
@@ -682,6 +686,10 @@ main > div:first-child {
   height: 36px;
   width: 73px;
   max-width: 73px;
+}
+
+.contraction__container {
+  display: none;
 }
 
 /* Stilizacija za sve vrste podcasta ispod podnaslova */
@@ -1298,4 +1306,60 @@ ostavlja kako je, a kreće se s radom na main formu*/
   max-height: 44px;
   width: initial;
   margin-bottom: 24px;
+}
+
+/* Pocetak media querya - za sada funkcionalno samo u podcasts.html */
+
+@media all and (max-width: 1280px) {
+  .aside__bar {
+    position: absolute;
+    left: -296px;
+    height: 100%;
+    z-index: 100;
+    transition: left 0.5s ease-in;
+  }
+
+  .show__aside {
+    left: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .position__left--zero {
+    left: 0;
+  }
+
+  .input__expand--container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .expansion__container {
+    width: 42px;
+    height: 42px;
+  }
+
+  .expansion__container,
+  .contraction__container {
+    background-color: var(--surface--primary);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 9px;
+    border: 1px solid var(--border--primary);
+  }
+
+  .contraction__container {
+    position: absolute;
+    right: 20px;
+    top: 43px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+  }
 }
