@@ -17,6 +17,14 @@
             width="187px"
             height="52px"
           />
+          <div class="contraction__container" id="closeAsideEl">
+            <img
+              src="./assets/images/icons/close.png"
+              alt="Close aside"
+              width="20px"
+              height="20px"
+            />
+          </div>
           <ul class="list__of--services">
             <li class="aside__list--item current__aside--item">
               <a href="dashboard.html">
@@ -162,10 +170,18 @@
           </div>
         </article>
       </aside>
-      <div class="main__section--content">
+      <div class="main__section--content" id="mainContainer">
         <header class="reusable__header">
           <nav class="reusable__navigation">
-            <div>
+            <div class="input__expand--container">
+              <div class="expansion__container" id="expandAsideEl">
+                <img
+                  src="./assets/images/icons/move-right.png"
+                  alt="Expand Aside"
+                  width="20px"
+                  height="20px"
+                />
+              </div>
               <input
                 type="text"
                 id="search"
@@ -251,7 +267,7 @@
               <h3>Podcasts</h3>
               <button class="view__all">View All</button>
             </div>
-            <div class="podcast__flex">
+            <div class="podcast__flex" id="podcastCarousel">
               <a href="#" class="podcast__flex--anchor">
                 <div class="podcast__card">
                   <div>
@@ -324,7 +340,7 @@
                 <button class="view__all">Disabled</button>
               </div>
             </div>
-            <div class="categories__flex">
+            <div class="categories__flex" id="featuredCarousel">
               <a href="#" class="categories__flex--anchor">
                 <figure class="background__secondary categories__flex--figure">
                   <img
@@ -421,7 +437,7 @@
               <h3>Categories</h3>
               <button class="view__all">View All</button>
             </div>
-            <div class="categories__flex">
+            <div class="categories__flex" id="categoriesCarousel">
               <a href="#" class="categories__flex--anchor">
                 <figure class="background__secondary categories__flex--figure">
                   <img
