@@ -60,48 +60,46 @@ function enableHorizontalScroll(carouselId) {
 
   if (!carousel) return;
 
-  if (window.matchMedia("(max-width: 1280px)").matches) {
-    const anchors = [...carousel.children];
+  const anchors = [...carousel.children];
+  anchors.forEach((anchor) => {
+    anchor.addEventListener("dragstart", (e) => e.preventDefault());
+  });
+  console.log(anchors);
+
+  let pressDown = false;
+  let startScrollX;
+  let scrollLeft;
+
+  carousel.addEventListener("mousedown", (e) => {
     anchors.forEach((anchor) => {
-      anchor.addEventListener("dragstart", (e) => e.preventDefault());
+      anchor.classList.add("disable__pointers");
     });
-    console.log(anchors);
+    pressDown = true;
+    startScrollX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
 
-    let pressDown = false;
-    let startScrollX;
-    let scrollLeft;
-
-    carousel.addEventListener("mousedown", (e) => {
-      anchors.forEach((anchor) => {
-        anchor.classList.add("disable__pointers");
-      });
-      pressDown = true;
-      startScrollX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
+  carousel.addEventListener("mouseleave", () => {
+    anchors.forEach((anchor) => {
+      anchor.classList.remove("disable__pointers");
     });
+    pressDown = false;
+  });
 
-    carousel.addEventListener("mouseleave", () => {
-      anchors.forEach((anchor) => {
-        anchor.classList.remove("disable__pointers");
-      });
-      pressDown = false;
+  carousel.addEventListener("mouseup", () => {
+    anchors.forEach((anchor) => {
+      anchor.classList.remove("disable__pointers");
     });
+    pressDown = false;
+  });
 
-    carousel.addEventListener("mouseup", () => {
-      anchors.forEach((anchor) => {
-        anchor.classList.remove("disable__pointers");
-      });
-      pressDown = false;
-    });
-
-    carousel.addEventListener("mousemove", (e) => {
-      if (!pressDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const move = x - startScrollX;
-      carousel.scrollLeft = scrollLeft - move;
-    });
-  }
+  carousel.addEventListener("mousemove", (e) => {
+    if (!pressDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const move = x - startScrollX;
+    carousel.scrollLeft = scrollLeft - move;
+  });
 }
 
 horizontalScrollArgs.forEach(enableHorizontalScroll);
@@ -155,3 +153,5 @@ function updateSearchBarBehavior() {
 
 updateSearchBarBehavior();
 window.addEventListener("resize", updateSearchBarBehavior);
+
+/* Na 420px također iz headera mičemo pojedine informacije i ubacujemo ih u dropdown */

@@ -569,7 +569,7 @@ img[src*="/assets/images/login-background/Zwook"] {
 }
 
 .dropdown__nav--information {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 68px;
