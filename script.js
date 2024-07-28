@@ -123,3 +123,35 @@ listaDashboardPodcasts.forEach((podcastsListItem) => {
     onlineContainer.style.marginRight = "10px";
   }
 });
+
+/* Trenutno na rezoluciji od 420px kreirano dinamično input polje */
+
+const mainSearchBar = document.getElementById("search");
+
+function handleInputFocus(event) {
+  event.target.style.width = "200px";
+  event.target.style.maxWidth = "200px";
+}
+
+function handleInputBlur(event) {
+  event.target.style.width = "42px";
+}
+
+// Prati promjene u veličini zaslona
+
+function updateSearchBarBehavior() {
+  if (window.matchMedia("(max-width: 420px)").matches) {
+    mainSearchBar.placeholder = "";
+
+    mainSearchBar.addEventListener("focus", handleInputFocus);
+    mainSearchBar.addEventListener("blur", handleInputBlur);
+  } else {
+    mainSearchBar.placeholder = "Search anything here";
+
+    mainSearchBar.removeEventListener("focus", handleInputFocus);
+    mainSearchBar.removeEventListener("blur", handleInputBlur);
+  }
+}
+
+updateSearchBarBehavior();
+window.addEventListener("resize", updateSearchBarBehavior);
