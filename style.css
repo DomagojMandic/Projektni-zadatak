@@ -488,6 +488,9 @@ img[src*="/assets/images/login-background/Zwook"] {
 
 .reusable__header {
   width: inherit;
+  position: sticky;
+  top: 0;
+  background-color: var(--background--primary);
 }
 
 .reusable__navigation {
@@ -569,21 +572,26 @@ img[src*="/assets/images/login-background/Zwook"] {
 }
 
 .dropdown__nav--information {
-  display: none;
+  display: flex;
   flex-direction: column;
   position: fixed;
   top: 68px;
-  right: 0;
+  right: 1.7rem;
   font-size: 1.4rem;
-  width: 170px;
-  height: 153px;
   list-style: none;
   background-color: var(--background--primary);
   border: 1px solid var(--border--primary);
   border-radius: 9px;
-  z-index: 2;
-  padding-top: 0.3rem;
+  border-top-right-radius: 0;
+  z-index: 1;
+  padding-top: 0.5rem;
   gap: 8px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  white-space: nowrap;
 }
 
 .dropdown__nav--information a {
@@ -593,7 +601,7 @@ img[src*="/assets/images/login-background/Zwook"] {
   transition: background-color 0.3s ease-in, color 0.3s ease-in;
   width: 90%;
   margin-left: 0.7rem;
-  padding: 0.5rem 0 0.5rem 0.3rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   border-radius: 7px;
 }
 
@@ -602,7 +610,17 @@ img[src*="/assets/images/login-background/Zwook"] {
   color: var(--text--primary);
 }
 
-/* Stilizacija onclick usera */
+/* Stilizacija onclick usera za dropdown */
+
+.nav__dropdown--visibility {
+  width: 170px;
+  height: 158px;
+  max-width: 170px;
+  max-height: 158px;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
 
 /* Featured card stilizacija */
 
@@ -953,6 +971,7 @@ to raditi s novom klasom jer ću u njoj dodati flex */
   gap: 8px;
   width: 153px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .current__song > img {
@@ -1016,11 +1035,13 @@ to raditi s novom klasom jer ću u njoj dodati flex */
   align-items: center;
   gap: calc(1vw - 7px);
   width: calc(12vw - 1.4vw);
+  min-width: 110px;
   max-width: 204px;
 }
 
 .full__volume {
   width: 8.96vw;
+  min-width: 80px;
   max-width: 172px;
   background-color: var(--border--primary--lighter);
   height: 4px;
@@ -1030,6 +1051,7 @@ to raditi s novom klasom jer ću u njoj dodati flex */
 }
 
 .adjusted__volume {
+  min-width: 60px;
   width: 7.08vw;
   max-width: 136px;
   height: 4px;
@@ -1453,6 +1475,12 @@ ostavlja kako je, a kreće se s radom na main formu*/
 }
 
 @media all and (max-width: 992px) {
+  /* Stilizacija za header search bar */
+
+  .reusable__navigation > div:first-child input {
+    max-width: 320px;
+  }
+
   /* Responzivnost podcasts.html-a */
 
   .left__side--podcasts--form {
@@ -1485,9 +1513,56 @@ ostavlja kako je, a kreće se s radom na main formu*/
   .podcast__card {
     background-size: cover;
   }
+
+  /* Responzivnost reusable footera */
+
+  .play__flex--item {
+    width: 350px;
+  }
+
+  .soundbar__container {
+    gap: 10px;
+    max-width: 150px;
+  }
 }
 
-@media all and (max-width: 420px) {
+@media all and (max-width: 768px) {
+  /* Stilizacija za reusable header */
+
+  .reusable__navigation > div:first-child input {
+    max-width: 250px;
+  }
+
+  /* Stilizacija za reusable footer */
+
+  .reusable__footer {
+    justify-content: initial;
+    gap: 20px;
+  }
+
+  .current__song {
+    min-width: 120px;
+  }
+
+  .current__song > img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .current__song > div span {
+    font-size: 13px;
+  }
+
+  .current__song > div p {
+    font-size: 11px;
+  }
+
+  .play__flex--item {
+    min-width: 150px;
+  }
+}
+
+@media all and (max-width: 600px) {
   /* Stilizacija za reusable header */
 
   .reusable__navigation > div:first-child {
@@ -1506,9 +1581,73 @@ ostavlja kako je, a kreće se s radom na main formu*/
 
   /* Desna strana reusable headera */
 
+  .right__side--nav > div:first-child {
+    display: none;
+  }
+
+  /* Stilizacija za reusable footer */
+
+  .reusable__footer {
+    gap: 20px;
+  }
+  .current__song {
+    width: 130px;
+  }
+
+  .play__flex--item {
+    flex-grow: 1;
+    width: 350px;
+    max-width: auto;
+  }
+
+  .soundbar__container {
+    position: relative;
+    min-width: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  .full__volume {
+    visibility: hidden;
+    opacity: 0;
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 65px;
+    left: -31px;
+    transition: visibility 0.3s ease-in, opacity 0.3s ease-in;
+  }
+
+  .full__volume--visible {
+    visibility: initial;
+    opacity: initial;
+  }
+}
+
+@media all and (max-width: 500px) {
+  /* Desna strana reusable headera */
+
+  .right__side--nav .account__name--email {
+    display: none;
+  }
+}
+
+@media all and (max-width: 420px) {
+  /* Desna strana reusable headera */
+
   .right__side--nav > div:first-child,
   .right__side--nav .account__name--email {
     display: none;
+  }
+
+  /* Stilizacija za Main container dashboarda */
+
+  .featured__container .featured__card h2 {
+    font-size: 3rem;
+  }
+
+  .featured__container .featured__card p,
+  .featured__container .featured__card q {
+    font-size: 1.3rem;
   }
 
   /* Stilizacija za Featured i Categories */

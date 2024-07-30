@@ -138,7 +138,7 @@ function handleInputBlur(event) {
 // Prati promjene u veličini zaslona
 
 function updateSearchBarBehavior() {
-  if (window.matchMedia("(max-width: 420px)").matches) {
+  if (window.matchMedia("(max-width:600px)").matches) {
     mainSearchBar.placeholder = "";
 
     mainSearchBar.addEventListener("focus", handleInputFocus);
@@ -154,4 +154,33 @@ function updateSearchBarBehavior() {
 updateSearchBarBehavior();
 window.addEventListener("resize", updateSearchBarBehavior);
 
-/* Na 420px također iz headera mičemo pojedine informacije i ubacujemo ih u dropdown */
+/* Na 420px također iz headera mičemo pojedine informacije i ubacujemo ih u dropdown
+koji funkcionira na svim veličinama*/
+
+const headerDropdownBtn = document.getElementById("profileDropdown");
+const headerDropdown = document.getElementById("headerDropdown");
+console.log(headerDropdown);
+
+headerDropdownBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  headerDropdown.classList.toggle("nav__dropdown--visibility");
+});
+
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (
+    headerDropdown.classList.contains("nav__dropdown--visibility") &&
+    !headerDropdown.contains(e.target)
+  ) {
+    headerDropdown.classList.toggle("nav__dropdown--visibility");
+  }
+});
+
+const soundButton = document.getElementById("soundButton");
+const soundBar = document.getElementById("soundBar");
+console.log(soundButton, soundBar);
+
+soundButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+  soundBar.classList.toggle("full__volume--visible");
+});
