@@ -1155,6 +1155,12 @@ ne prepisujem stilizaciju od prošlog dokumenta*/
   height: 20px;
 }
 
+.playlist__song--grid > div:last-child {
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+
 .playlist__song--grid div > img {
   border-radius: 5px;
   border: 1px solid var(--border--primary);
@@ -1494,6 +1500,27 @@ ostavlja kako je, a kreće se s radom na main formu*/
     height: 533px;
   }
 
+  /* Stilizacija za playlists */
+
+  .playlist__card h2 {
+    font-size: 5rem;
+    line-height: 60px;
+  }
+
+  .playlist__song--grid {
+    grid-template-columns: 50px 30% 25% repeat(2, 20%);
+  }
+
+  .playlist__song--grid .song__artist > p {
+    font-size: 1.2rem;
+  }
+
+  .playlist__song--grid div:nth-child(3),
+  .playlist__song--grid div:nth-child(4),
+  .playlist__song--grid div:nth-child(5) {
+    font-size: 1.3rem;
+  }
+
   /* Responzivnost dashboard.html */
 
   /* Promjena veličine ikona kod Podcasts podnaslova */
@@ -1531,6 +1558,38 @@ ostavlja kako je, a kreće se s radom na main formu*/
 
   .reusable__navigation > div:first-child input {
     max-width: 250px;
+  }
+
+  /* Stilizacija za playlists */
+
+  .playlist__hero--section {
+    height: 250px;
+    max-height: 250px;
+  }
+
+  .playlist__featured--container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .playlist__card h2 {
+    font-size: 3.7rem;
+    line-height: 45px;
+  }
+
+  .playlist__song--grid {
+    grid-template-columns: 1fr 1fr 20% 0.5fr;
+    gap: 15px;
+  }
+  .playlist__song--grid div:first-child {
+    display: none;
+  }
+
+  /* Stilizacija za podcasts formu */
+
+  .right__side--podcasts--form {
+    min-width: initial;
+    max-height: 500px;
   }
 
   /* Stilizacija za reusable footer */
@@ -1585,6 +1644,56 @@ ostavlja kako je, a kreće se s radom na main formu*/
     display: none;
   }
 
+  /* Stilizacija za playlists */
+
+  .playlist__featured--container img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .playlist__card {
+    padding-right: 1rem;
+  }
+
+  .playlist__card h2 {
+    font-size: 3rem;
+  }
+
+  .playlist__card p {
+    font-size: 1.2rem;
+  }
+
+  header.playlist__song--grid > h5:nth-child(4),
+  header.playlist__song--grid > h5:nth-child(5),
+  .playlist__song--grid > div:nth-child(4),
+  .playlist__song--grid > div:nth-child(5) {
+    display: none;
+  }
+
+  .playlist__song--grid {
+    grid-template-columns: 1fr 0.8fr 10%;
+  }
+
+  .playlist__song--grid > div:last-child {
+    display: block;
+  }
+
+  .playlist__song--grid > div:last-child img {
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Stilizacija za podcasts formu */
+
+  .left__side--podcasts--form {
+    min-width: initial;
+  }
+
+  .right__side--podcasts--form {
+    min-width: initial;
+    max-height: 400px;
+  }
+
   /* Stilizacija za reusable footer */
 
   .reusable__footer {
@@ -1628,6 +1737,62 @@ ostavlja kako je, a kreće se s radom na main formu*/
 
   .right__side--nav .account__name--email {
     display: none;
+  }
+
+  /* Stilizacija playlists*/
+
+  .playlist__hero--section {
+    height: 200px;
+    max-height: 200px;
+  }
+
+  .playlist__featured--container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .playlist__card h2 {
+    font-size: 2rem;
+    line-height: 30px;
+  }
+
+  /* Stilizacija reusable footera */
+
+  .reusable__footer {
+    flex-direction: column;
+    height: initial;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: 2;
+    justify-items: center;
+  }
+
+  .play__flex--item {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .timeline__container {
+    min-width: 250px;
+    width: max-content;
+  }
+  .timeline__container > .full__timeline {
+    min-width: 150px;
+    max-width: 285px;
+  }
+
+  .soundbar__container {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    width: initial;
+  }
+
+  .full__volume {
+    visibility: initial;
+    opacity: initial;
+    transform: initial;
+    position: initial;
+    transition: none;
   }
 }
 
@@ -1678,5 +1843,60 @@ ostavlja kako je, a kreće se s radom na main formu*/
   .categories__flex--figure figcaption {
     font-size: 1.2rem;
     padding-top: 5px;
+  }
+
+  /* Stilizacija playlists */
+
+  header.playlist__song--grid > h5:nth-child(3),
+  .playlist__song--grid > div:nth-child(3) {
+    display: none;
+  }
+
+  .playlist__song--grid {
+    grid-template-columns: 1fr 10%;
+  }
+
+  .playlist__song--grid .flex__row--start > img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .playlist__song--grid .song__artist > p {
+    font-size: 1.4rem;
+  }
+
+  .playlist__song--grid .song__artist > span {
+    font-size: 1.2rem;
+  }
+
+  .playlist__song--grid .flex__row--start {
+  }
+
+  .playlist__featured--container img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .playlist__card h2 {
+    line-height: 20px;
+    font-size: 1.7rem;
+  }
+
+  .playlist__card p {
+    font-size: 1.1rem;
+  }
+
+  /* Stilizacija za podcasts formu */
+
+  main > .podcasts__header:first-child {
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+
+  .podcasts__header div {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-end;
   }
 }
